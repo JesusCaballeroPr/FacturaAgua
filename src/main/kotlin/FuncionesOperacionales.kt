@@ -1,10 +1,25 @@
 import java.util.Scanner
+
+/**
+ * Funciones generales para realizar la toma de datos de los litros por parte del usuario y operaciones realizadas
+ * para el  trato de los datos con el fin de calcular el precio de la factura del agua según determinados rasgos
+ * @author JesusCaballeroPr
+ */
 val SCAN=Scanner(System.`in`)
+
+/**
+ * @param mensaje, Mensaje inicial con el fin de recoger la cantidad de litros consumidos
+ * @return , Nos devolverá un Double con los litros dados por el usuario
+ */
 fun litrosConsumidos(mensaje:String):Double{
     println(mensaje)
     var litros=SCAN.nextDouble()
     return litros
 }
+
+/**
+ * @param litros, En base a los litros introducidos, y varias variables definidas, calcularemos cuánto ha de pagar
+ */
 fun consumoAguaPrecio (litros: Double):Double{
     var min=50
     var max=200.0
