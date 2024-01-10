@@ -248,6 +248,7 @@ fun readFloat(pMessageIn: String
 
         if (!correctDataType){
             println(RED_BACKGROUND_BRIGHT + "ERROR: " + pMessageErrorDT + RESET)
+            correctDataType=false
         }else{
             outputValue = scan.nextFloat()
         }
@@ -256,21 +257,28 @@ fun readFloat(pMessageIn: String
 
     return outputValue
 }
-fun readDouble(pMessageIn: String
-              , pMessageErrorDT: String
+fun readDouble(mensajeInicial:String
+               ,pMessageErrorDT: String
+               ,mensajeFueraRango:String
+               , valorMinimo:Double
+               ,valorMaximo:Double
 ): Double{
 
     var outputValue: Double = 0.00
     var correctDataType: Boolean = false
 
     do{
-        println(pMessageIn)
+        println(mensajeInicial)
         correctDataType = scan.hasNextDouble()
 
         if (!correctDataType){
             println(RED_BACKGROUND_BRIGHT + "ERROR: " + pMessageErrorDT + RESET)
         }else{
             outputValue = scan.nextDouble()
+            if (outputValue<valorMinimo||outputValue>valorMaximo){
+                println(RED_BACKGROUND_BRIGHT + "ERROR: "+ mensajeFueraRango+ RESET)
+                correctDataType=false
+            }
         }
         scan.nextLine()
     }while(!correctDataType)
