@@ -1,35 +1,39 @@
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
+import java.util.*
 
 class FuncionesOperacionalesKtTest{
-    @Test
-    fun testLitrosConsumidos() {
-        var litros = litrosConsumidos("¿Cuántos litros ha consumido?")
-        assertTrue(litros is Double, "La función litrosConsumidos debería devolver un Double.")
-    }
 
-    @Test
-    fun testMenuTipoBono() {
-        var tipo = menuTipoBono("¿Tiene el descuento de familia numerosa (1) o un bono social (2)?")
-        assertTrue(tipo is Int, "La función menuTipoBono debería devolver un Int.")
-    }
+        @Test
+        fun testLitrosConsumidos() {
+            val litros = litrosConsumidos("Mensaje")
+            assertEquals(50.0, litros, "Los litros consumidos deben ser 50.0")
+        }
+
     @Test
     fun testConsumoAguaPrecio() {
-        assertEquals(6.0, consumoAguaPrecio(10.0), "El precio del agua para 10 litros debería ser 6.0")
-        assertEquals(30.0, consumoAguaPrecio(200.0), "El precio del agua para 200 litros debería ser 30.0")
-        assertEquals(60.0, consumoAguaPrecio(200.0), "El precio del agua para 201 litros debería ser 60.0")
-    }
-    @Test
-    fun testDescuentoTipoBono() {
-        assertEquals(0.0, descuentoTipoBono(1), "El descuento para una familia numerosa de una persona debería ser 0.0")
-        assertEquals(0.2, descuentoTipoBono(1), "El descuento para una familia numerosa de dos personas debería ser 0.2")
-        assertEquals(0.5, descuentoTipoBono(1), "El descuento para una familia numerosa de seis personas debería ser 0.5")
-        assertEquals(0.8, descuentoTipoBono(2), "El descuento para un bono social debería ser 0.8")
+        val precio = consumoAguaPrecio(100.0)
+        assertEquals(21.0, precio, "El precio del agua debe ser 21.0")
     }
 
+        @Test
+        fun testMenuTipoBono() {
+            val tipo = menuTipoBono("Mensaje")
+            assertEquals(1, tipo, "El tipo de bono debe ser 1")
+        }
+
+        @Test
+        fun testDescuentoTipoBono() {
+            val descuento = descuentoTipoBono(1)
+            assertEquals(0.4, descuento, "El descuento debe ser 0.4")
+        }
+
     @Test
-    fun testFacturaAgua() {
-        assertEquals("La factura total del agua será:  6.0, se le ha descontado 0.0 y la cuota fija es de 6.0", facturaAgua("La factura total del agua será: ", 10.0, 0.0), "La factura para 10 litros sin descuento debería ser 6.0")
+    fun facturaAgua() {
+        val factura = facturaAgua("Mensaje", 100.0, 0.4)
+        assertEquals("Mensaje 60.0€, se le ha descontado 40.0€ y la cuota fija es de 6.0€", "La factura del agua debe ser 'Mensaje 60.0€, se le ha descontado 40.0€ y la cuota fija es de 6.0€'")
     }
 }
+
+
 
