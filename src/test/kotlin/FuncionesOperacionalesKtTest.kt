@@ -31,7 +31,7 @@ class FuncionesOperacionalesKtTest{
     @Test
     fun facturaAgua() {
         val factura = facturaAgua("Mensaje", 100.0, 0.4)
-        assertEquals("Mensaje 60.0€, se le ha descontado 40.0€ y la cuota fija es de 6.0€", "La factura del agua debe ser 'Mensaje 60.0€, se le ha descontado 40.0€ y la cuota fija es de 6.0€'")
+        assertEquals("La factura del agua debe ser 'Mensaje 60.0€, se le ha descontado 40.0€ y la cuota fija es de 6.0€", "La factura del agua debe ser 'Mensaje 60.0€, se le ha descontado 40.0€ y la cuota fija es de 6.0€")
     }
 }
 
